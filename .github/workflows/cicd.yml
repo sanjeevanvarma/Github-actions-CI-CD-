@@ -75,7 +75,7 @@ jobs:
           echo "Uploading $WAR_NAME to Nexus..."
           curl -v -u "${{ secrets.NEXUS_USERNAME }}:${{ secrets.NEXUS_PASSWORD }}" \
             --upload-file "$WAR_FILE" \
-            "${{ secrets.NEXUS_URL }}/repository/hotstar/com/example/myapp/1.0.0/$WAR_NAME"
+            "${{ secrets.NEXUS_URL }}/repository/hotstar/$WAR_NAME"
 
       # ─────────────────────────────────────────
       # 10. Upload WAR to S3
