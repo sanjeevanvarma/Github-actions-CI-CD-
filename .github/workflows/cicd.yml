@@ -67,8 +67,7 @@ jobs:
             -Dsonar.login=$SONAR_LOGIN
 
       # ─────────────────────────────────────────
-      # 9. Upload WAR to Nexus Repository
-      # ─────────────────────────────────────────
+     # 9. Upload WAR to Nexus Repository
       - name: Upload WAR to Nexus
         run: |
           WAR_FILE=$(ls target/*.war | head -n 1)
@@ -76,7 +75,7 @@ jobs:
           echo "Uploading $WAR_NAME to Nexus..."
           curl -v -u "${{ secrets.NEXUS_USERNAME }}:${{ secrets.NEXUS_PASSWORD }}" \
             --upload-file "$WAR_FILE" \
-            "${{ secrets.NEXUS_URL }}/repository/maven-releases/com/example/myapp/1.0.0/$WAR_NAME"
+            "${{ secrets.NEXUS_URL }}/repository/hotstar/com/example/myapp/1.0.0/$WAR_NAME"
 
       # ─────────────────────────────────────────
       # 10. Upload WAR to S3
